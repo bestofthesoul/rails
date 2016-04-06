@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
+
+  has_many :blogs, :dependent => :destroy # it means if i delete the user, the respestive blogs will be destroyed
+
   validates :email, uniqueness: true
   has_many :authentications, :dependent => :destroy
 
