@@ -1,0 +1,81 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+
+# if i wanna change clearance attributes
+class UsersController < Clearance::UsersController
+
+  def edit
+  end
+
+  def create
+    @user = User.new(user_params_revised)
+
+    if @user.save
+      sign_in @user
+      redirect_back_or url_after_create
+    else
+      render template: "users/new"
+    end
+  end
+
+  def user_params_revised
+    params.require(:user).permit(:name, :email, :password)
+  end
+
+end
+
+
+# constraints Clearance::Constraints::SignedIn.new do
+#   root to: 'dashboards#show', as: :signed_in_root
+# end
+
+
+1) git init #adding the .git file into the root folder, so that it knows i need to git all the files on the same / below level to git
+
+
+2) git remote add <github/bitbucket/origin> <address of it, for eg. XXXX.git>
+
+2a) git remote -v #-->
+name XXXX.git(fetch)
+name XXX.git(push)
+
+3) git add . #add all files , to be ready to commit
+4) git commit -m "" # commit message pls make it clear, accodign to what is working, what is changed, because , u know exactly ur progress
+
+
+5) git push github master
+
+
+WHAT IF I M WORKING ON A BRANCH
+
+
+
+
+
