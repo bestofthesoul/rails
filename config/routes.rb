@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'blogs/index'
+
+  get 'blogs/show'
+
 root 'welcome#index'
 
 #*** rails g clearance:routes show all these default Clearance routes
