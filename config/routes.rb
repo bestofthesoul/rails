@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'blogs/index'
+
+  get 'blogs/show'
+
 root 'welcome#index'
 
 #*** rails g clearance:routes show all these default Clearance routes
@@ -18,6 +22,9 @@ get "/sign_up" => "clearance/users#new", as: "sign_up"
 #*** end of default routes of Clearance
 
 get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+
+resources :blogs, only: [:index, :show]
 
 
 

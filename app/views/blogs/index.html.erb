@@ -1,0 +1,12 @@
+<h1>Blogs#index</h1>
+
+<div>
+  <% @blogs.each do |x| %>
+    <%= x.title %>
+    <%= x.content %>
+    <%= x.user.email %>
+    <%= x.comment %>
+  <% end%>
+</div>
+
+
